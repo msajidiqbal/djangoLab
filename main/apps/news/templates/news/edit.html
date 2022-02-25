@@ -1,0 +1,14 @@
+{% extends 'base_bootstrap.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Edit News{% endblock title %}
+
+
+    {% block content %}
+    <form action="" method="post"> {% csrf_token %}
+        {{form | crispy}}
+
+        <input type="submit" class="btn btn-info ml-2" value="Update">
+
+    </form>
+    
+    {% endblock content %}

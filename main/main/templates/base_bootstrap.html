@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta data  -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- bootstrap css + js -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- document title -->
+    <title>{% block title %}base with bootstrap{% endblock title %}</title>
+   
+
+</head>
+
+<body>
+
+    {% block bs_sidenav %}
+    <nav class="navbar navbar-expand-md navbar-light text-black bg-gray mb-4 shadow p-3 mb-5">
+        <a class=" navbar-brand" href="{% url 'pages:home' %}">Home</a>
+        <a class=" navbar-brand" href="{% url 'pages:about' %}">Profile</a>
+        
+        <div class="navbar-brand dropdown">
+            <a class="text-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+              Projects
+            </a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class=" dropdown-item" href="{% url 'posts:home' %}">Posts</a>
+                <a class=" dropdown-item" href="{% url 'polls:home' %}">Polls</a>
+                <a class=" dropdown-item" href="{% url 'blogs:home' %}">Blogs</a>
+                <a class=" dropdown-item" href="{% url 'news:landing' %}">Newspaper</a>
+                <a class=" dropdown-item" href="{% url 'bookstore:home' %}">Bookstore</a>
+            </div>
+          </div>
+
+        
+
+
+
+        {% endblock bs_sidenav %}
+
+        <div class="dropdown-menu-left collapse navbar-collapse" id="navbarCollapse">
+            <button class="navbar-toggler btn btn-primary" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggel naviagion">
+                <span class="navbar-toggler-icon"></span></button> {% if user.is_authenticated %}
+            <ul class="navbar-nav ml-auto" style="left: auto; right: 0px;">
+                <li class="nav-item"><a class="nav-link dropdown-toggle text-dark" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{user.username}}</a>
+                    <div class="dropdown-menu" aria-labelledby="userMenu" style="left: auto; right: 0px;">
+                        <a class="dropdown-item" href="{%url 'password_change'%}">Change Password</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{%url 'logout'%}">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+            {%else%}
+
+            <form class='form-inline ml-auto' style="margin:auto;max-width:300px;" action="{% url 'bookstore:search'%}" method='GET'>
+                <input name='q' type="text" class='form-control' placeholder='Search' arial-label='Search'>
+                <button class="btn btn-primary ml-auto" type="submit">Search</i></button>
+            </form>
+
+            
+            <form  class="form-inline ml-auto" action="">
+                <a href="{% url 'login' %}" class="btn btn-outline-secondary ml-2">Log In</a>
+                <a href="{% url 'users:users_signup'%} " class="btn btn-primary ml-2">Sign Up</a>
+                
+            </form>
+            {% endif %}
+        </div>
+
+
+
+
+
+
+
+
+    </nav>
+    {% block breadcrubm %}
+    
+    {% endblock breadcrubm %}
+
+    <div class="container">
+        {% block content %}
+        <h1>Hello, World from Bootstrap 4.6</h1>
+        {% endblock content %}
+
+    </div>
+
+
+</body>
+
+</html>

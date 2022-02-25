@@ -1,0 +1,19 @@
+{% extends 'blogs/index.html' %}
+
+{% block title %} Blog Details {% endblock title %}
+
+{% block content %}
+<h1> <a href="{% url 'blogs:home' %}">Django Blog App</a></h1>
+<hr>
+<div class="post-entry">
+    <p> <h3>Title:</h3>  {{blogdetail.title}} </p>
+    <p> <h3>Description:</h3> {{blogdetail.body}} </p>
+</div>
+
+<a href="{%url 'blogs:editblog' blogdetail.pk%}">Edit Blog</a> | <a href="{%url 'blogs:delblog' blogdetail.pk %}">Delete Blog</a>
+<br>
+<a href="{% url 'blogs:home' %}">Back to Blogs Home</a>
+
+{% endblock content %}
+
+

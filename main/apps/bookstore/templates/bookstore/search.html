@@ -1,0 +1,15 @@
+{% extends 'base_bootstrap.html' %}
+
+{% block title %}Search...{% endblock title %}
+
+{% block content %}
+
+{% for book in booklist  %}
+<h4><a href="{{book.get_absolute_url}}">{{book.title}}</a></h4>
+<p>Author: {{book.author}}</p>
+<p>Price: {{book.price}} </p>
+
+{% endfor %}
+
+{% endblock content %}
+

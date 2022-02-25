@@ -1,0 +1,15 @@
+{% extends 'news/index.html' %}
+
+{% block title %}News details{% endblock title %}
+
+{% block content %}
+   <div class="news-entry">
+    <h2>{{newsobject.title}}</h2>
+    <p>by {{newsobject.author}} | {{newsobject.date}}</p>
+    <p>{{newsobject.body}}</p>
+   </div>
+   <p><a href="{% url 'news:edit' newsobject.pk%}">Edit</a> |
+   <a href="{% url 'news:delete' newsobject.pk %}">Delete</a>
+</p>
+<p>Back to <a href="{% url 'news:home' %}">News Home</a> </p>
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'base_bootstrap.html' %}
+
+{% block title %}Orders{% endblock title %}
+
+{% block content %}
+<h2>Welcome to Order Page</h2>
+<p>Buy for $39.0</p>
+<form action="{%url 'orders:charge'%}" method="post"> {% csrf_token %}
+
+<script
+    src="https://checkout.stripe.com/checkout.js" class = 'stripe-button'
+    data-key="{{stripe_key}}"
+    data-description = 'all Books'
+    data-amount="3900"
+    data-locale="auto">
+</script>
+</form>
+
+{% endblock content %}

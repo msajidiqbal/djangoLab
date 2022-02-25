@@ -1,0 +1,30 @@
+{% extends 'base_bootstrap.html' %} {% block title %}Newspaper App{% endblock title %} {% block content %}
+<h2>Welcome to Newspaper </h2>
+
+<div class="create-right" style="text-align:center;">
+    <h3><a href="{% url 'news:create' %}">Create News Article</a></h3>
+</div>
+
+{% if news %} {% for item in news %}
+<div class="card">
+    <div class="card-header">
+        <span class="font-weight-bold"><a href="{% url 'news:detail' item.pk %}">{{item.title}}</a> </span> &middot;
+        <span class="text-muted">by {{item.author}} | {{item.date}}</span>
+    </div>
+    <div class="card-body">
+        <p>{{item.body}}</p>
+        <a href="{% url 'news:edit' item.pk%}">Edit</a> |
+        <a href="{% url 'news:delete' item.pk%}">Delete</a>
+    </div>
+    <div class="card-footer">
+        {% for cmt in item.comments.all %}
+        <p>
+            <span class="font-weight-bold">{{cmt.author}} &middot; </span> {{cmt}}
+        </p>
+        {% endfor %}
+
+    </div>
+</div>
+<br> {% endfor %} {% else %}
+<p>You have no news!</p>
+{% endif %} {% endblock content %}

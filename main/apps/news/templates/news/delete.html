@@ -1,0 +1,16 @@
+{% extends 'base_bootstrap.html' %}
+
+{% block title %}Delete News Article{% endblock title %}
+
+{% block content %}
+<h2>Delete</h2>
+
+<form action="" method="post"> {% csrf_token %}
+    
+    <p>Are you sure you want to delete "{{news.title}}"? </p>
+    <button class="btn btn-danger mll-2" type="submit">Confirm</button>
+
+
+</form>
+
+{% endblock content %}

@@ -1,0 +1,34 @@
+{% extends 'base_bootstrap.html' %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+
+{% block content %}
+<h2>Welcome to Book Store</h2>
+<hr>
+<div class="post-entry">
+    {% if bookdetail.cover %}
+    <div>
+        {% comment %} <p>{{bookdetail.cover.url}}</p> {% endcomment %}
+        <img src={{bookdetail.cover.url}} style="width:5rem; height:5rem; border: 1px solid gray;" alt="{{bookdetail.title}}">
+    </div>
+    {% endif %}
+    <p> <h3>Title:</h3>  {{bookdetail.title}} </p>
+    <p> <h3>Author:</h3> {{bookdetail.author}} </p>
+    <p><h3>Price:</h3> {{bookdetail.price}}</p>
+</div>
+<div>
+<h3>Reviews</h3>
+<ul>
+    {% for rev in bookdetail.reviews.all %}
+    <li>{{rev.review}} ({{rev.author}})</li>
+    {% endfor %}
+</ul>
+</div>
+<a href="{% url 'bookstore:home' %}">Back to Bookstore Home</a>
+
+{% endblock content %}
+
+

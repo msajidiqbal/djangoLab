@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} Blogs {% endblock title %} 
+
+{% block sidenav %}
+<div class="nav-left">
+    <a href="{% url 'pages:home' %}">Home</a> |
+    <a href="{% url 'pages:about' %}">About Us</a> |
+    <a href="{% url 'posts:home' %}" >Posts</a> |
+    <a href="{% url 'polls:home' %}">Polls</a> |
+    <a href="{% url 'blogs:home' %}">Blogs</a>
+</div>
+<div class="nav-right">
+    <a href="{% url 'blogs:createblog' %} ">+New Blog Post</a> 
+</div>
+{% endblock sidenav %}
+
+
+{% block content %}
+
+{% comment %} <h1><a href="{% url 'blogs:home' %}">Django Blog App</a></h1> {% endcomment %}
+<h1>Django Blog App</h1>
+
+<ul>
+    {% if bloglist %}
+    {% for blog in bloglist %}
+<div class="post-entry">
+        <h2><a href="{% url 'blogs:detail' blog.pk %}">{{blog.title}}</a></h2>
+        <p>{{blog.body}}</p> 
+    
+    {% endfor %}
+    {% else %}
+    <p>There is no Blog posts!</p>
+</div>
+    {% endif %}
+
+</ul>
+
+{% endblock content %}
+
+
