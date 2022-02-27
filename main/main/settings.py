@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # local apps
     'apps.pages',
@@ -55,8 +56,22 @@ INSTALLED_APPS = [
     'apps.bookstore',
     'apps.orders',
 
+    # APIs
+    'apps.booksapi',
+    'apps.todoapi',
+    'apps.blogapi',
+
     # 3rd party
     'crispy_forms',
+    'rest_framework',
+    'rest_framework.authtoken',  # token authentication
+
+    # 'rest_auth', # this app can override our custom user model for login/logout/reset password functionality
+    # user registration app to ovveride default user app
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth-socialaccount',
+    # 'rest_auth',
 
 
 ]
@@ -156,6 +171,7 @@ LOGOUT_REDIRECT_URL = 'pages:home'
 AUTH_USER_MODEL = 'users.CustomUser'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+SITE_ID = 1
 
 # sendgrid settings
 EMAIL_HOST = 'smtp.sendgrid.net'
@@ -169,3 +185,25 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'main\\media')
 #  add stripe
 STRIPE_TEST_PUBLISHABLE_KEY = os.environ.get('enter key here')
 STRIPE_TEST_SECRET_KEY = os.environ.get('enter key')
+
+# rest_framework user access settings
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        # allow any one permissions
+        # 'rest_framework.permissions.AllowAny',
+        # allow anyone to view or crud for authenticated users
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+    # user authentication settings - session/token authentication
+    # default available options are sessionauthentication and basicauthentication
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        # basic authentication can be override with tokenauthentication
+
+        # 'rest_framework.authentication.BasicAuthentication',
+
+        # token authentication
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+
+}

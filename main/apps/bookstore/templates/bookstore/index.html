@@ -5,10 +5,6 @@
 {% block content %}
 
 <h2>Welcome to Book Store</h2>
-<form class='form-inline mt-2 mt-md-0' action="{% url 'bookstore:search'%}" method='GET'>
-    <input name='q' type="text" class='form-control mr-sm-2' palceholder='Search' arial-label='Search'>
-
-</form>
 <hr>
 {% if booklist %}
     {% for book in booklist %}

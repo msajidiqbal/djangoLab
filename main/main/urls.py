@@ -28,6 +28,11 @@ urlpatterns = [
     path('', include('apps.bookstore.urls')),
     path('', include('apps.orders.urls')),
 
+    # API urls
+    path('', include('apps.booksapi.urls')),
+    path('', include('apps.todoapi.urls')),
+    path('', include('apps.blogapi.urls')),
+
     # enrolnew - local app for signup setup
     path('', include('apps.enrolnew.urls')),
 
@@ -36,6 +41,13 @@ urlpatterns = [
     # accounts/users/or any name: using default auth django
     path('users/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
+
+    # add permissions provided by rest_framework and user login from rest_frame page
+    path('api-auth/', include('rest_framework.urls')),
+
+    # add following urls if rest_auth app is used
+    # path('blogapi/rest-auth/', include('rest_auth.urls')),
+    # path('blogapi/rest-auth/registration/', include('rest_auth.registration.urls')),
 
 
 
