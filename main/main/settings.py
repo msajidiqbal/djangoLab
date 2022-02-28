@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-*)^=n&4@1&*e^qcmnf@hfkjl2b#-a-47&3%)@9-(537tj$1+rj
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['lightw.herokuapp.com']
+ALLOWED_HOSTS = ['main.herokuapp.com']
 
 
 # Application definition
