@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'apps.news',
     'apps.bookstore',
     'apps.orders',
+    'apps.courses',
 
     # APIs
     'apps.booksapi',
@@ -65,6 +66,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework',
     'rest_framework.authtoken',  # token authentication
+    'rest_framework_swagger',
 
     # 'rest_auth', # this app can override our custom user model for login/logout/reset password functionality
     # user registration app to ovveride default user app
@@ -205,5 +207,7 @@ REST_FRAMEWORK = {
         # token authentication
         'rest_framework.authentication.TokenAuthentication',
     ],
+    # add following settings to enable api schemas
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 
 }

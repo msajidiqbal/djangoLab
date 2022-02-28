@@ -18,6 +18,12 @@ from django.urls import path, include
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.schemas import get_schema_view
+from rest_framework.documentation import include_docs_urls
+
+
+schema_view = get_schema_view(title='APIs')  # for machine readable format
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.pages.urls')),
@@ -27,6 +33,7 @@ urlpatterns = [
     path('', include('apps.news.urls')),
     path('', include('apps.bookstore.urls')),
     path('', include('apps.orders.urls')),
+    path('', include('apps.courses.urls')),
 
     # API urls
     path('', include('apps.booksapi.urls')),
@@ -48,6 +55,13 @@ urlpatterns = [
     # add following urls if rest_auth app is used
     # path('blogapi/rest-auth/', include('rest_auth.urls')),
     # path('blogapi/rest-auth/registration/', include('rest_auth.registration.urls')),
+
+
+    # API documentation
+    path('docs/', include_docs_urls(title='APIs')),
+    # add schema for api endpoints
+    path('schema/', schema_view),
+
 
 
 

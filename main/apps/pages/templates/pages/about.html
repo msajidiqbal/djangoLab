@@ -1,10 +1,225 @@
 {% extends "base_bootstrap.html" %}
 
 {% block title %}
- About Us
+Profile
 {% endblock title %}
 
 {% block content %}
-    <h1>About Us</h1>
+
+<nav>
+    <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+      <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Professional Experience</a>
+      <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Education</a>
+      <a class="nav-link" id="nav-itskills-tab" data-toggle="tab" href="#nav-itskills" role="tab" aria-controls="nav-itskills" aria-selected="false">Technical Skills</a>
+      <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        
+      <!-- Work Exp1. -->
+        <div class="card mt-4">
+            <h5 class="card-header">Regulatory Compliance Analyst</h5>
+            <div class="card-body">
+              <h5 class="card-title">Sundial Growers Inc. AB, Canada <span class="float-right">Feb-2020-Present</span></h5>
+              <ul class="card-text">
+                <li>Management of quality assurance data through a cloud based electronic quality management system (eQMS).</li>
+                <li>Collect and analyze quality events data for trending, visulization, and statistical analysis to provide useful insights to make improvements.</li>
+                <li>Writing, reviewing, and updating quality policies/procedures to ensure continuous compliance with the Cannabis Act and Regulations and Good Production Practices.</li>
+                <li>Prepare quality reports using statistical analysis to evaluate performance and recommend and follow up progress of corrective action plan implementation.</li>
+                <li>Database management using Veeva C15, NAV System, Quickbase, Microsoft excel sheets.</li>
+              </ul>
+            </div>
+        </div>
+
+<!-- Work Exp. 2 -->
+
+        <div class="card mt-4">
+            <h5 class="card-header">Quality Complaints Data Analyst</h5>
+            <div class="card-body">
+              <h5 class="card-title">Aurora Cannabis Inc. AB, Canada <span class="float-right">May 2018-Feb 2020</span></h5>
+              <ul class="card-text justify-content-evenly">
+                <li>Complaints database management and documentation for clients, provincial and global partners to ensure regulatory compliance and customer satisfaction.</li>
+                <li>Complaint handling strategy including electronic system management (CRM, Organic Ample), spreadsheets, and other complaint management tools (Sage Inventory Database).</li>
+                <li>Develop and analyze complaint key performance metrics and quality data to identify trends and provide information to management and Health Canada.</li>
+                <li>Develop data-pipelines to extract, manipulate, visualize, and generate reports using Python, Microsoft office.</li>
+              </ul>
+            </div>
+        </div>
+
+        <!-- Work Exp. 3 -->
+
+        <div class="card mt-4">
+          <h5 class="card-header">Process Data Technologist</h5>
+          <div class="card-body">
+            <h5 class="card-title">Cavendish Farms Inc. AB, Canada <span class="float-right">Sep 2017-Apr 2018</span></h5>
+            <ul class="card-text justify-content-evenly">
+              <li>Collecting samples, analyzing various quality attributes and record data.</li>
+              <li>Organize, sort, extract and analyze data by developing Python scripts.</li>
+              <li>Performing statistical analysis on collected data, compile reports, and centralized files and records.</li>
+              <li>Conducting research and development to make improvements to Perten spectrophotometer by feeding reference values against predicted values, and building calibration files from scratch by implementing mathematical multi-variance analysis.</li>
+            </ul>
+          </div>
+      </div>
+
+        <!-- Work Exp. 4 -->
+
+        <div class="card mt-4">
+          <h5 class="card-header">Scientific Software Developer</h5>
+          <div class="card-body">
+            <h5 class="card-title">University of Lethbridge AB, Canada <span class="float-right">Sep 2012-Aug 2017</span></h5>
+            <ul class="card-text justify-content-evenly">
+              <li>Develop analytical and simulation models using Python & MATLAB to compute the thermodynamics and kinetics properties of biological reactions occurring in crowded media.</li>
+              <li>Develop Monte Carlo simulations using steric clash algorithms to assess the macromolecular crowding in virtual 3D cells.</li>
+              <li>Improve performance of steric clash algorithms (e.g. compute energy, and distances) using parallel and multi-threading packages.</li>
+              <li>Develop Python based pipelines to read, clean, and extract desired shape attributes of given biological molecules using Convex Hull Algorithm.</li>
+              <li>Develop and implement machine learning linear regression model in MATLAB to predict the unknown structural parameters (volume, surface area, radius of curvature) of the transition states of biomacromolecules.</li>
+            </ul>
+          </div>
+      </div>
+    </div> <!-- nav-home end -->
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+      <!-- education 1 -->
+      <div class="card mt-4">
+        <h5 class="card-header">Postgraduate Degree in Earth, Space and Physical Sciences</h5>
+        <div class="card-body">
+          <h5 class="card-title">University of Lethbridge AB, Canada <span class="float-right">Sep 2012-Aug 2017</span></h5>
+          <ul class="card-text">
+            <li>GPA: 3.57/4.00</li>
+          </ul>
+        </div>
+    </div>
+
+          <!-- education 2 -->
+          <div class="card mt-4">
+            <h5 class="card-header">Diploma in Information Technology</h5>
+            <div class="card-body">
+              <h5 class="card-title">National Skill Development Council, Pakistan <span class="float-right">2014-2016</span></h5>
+              <ul class="card-text">
+                <li>Grade: B+</li>
+              </ul>
+            </div>
+        </div>
+
+                  <!-- education 3 -->
+                  <div class="card mt-4">
+                    <h5 class="card-header">E-learning Courses</h5>
+                    <div class="card-body">
+                      <h5 class="card-title">Coursera Plateform<span class="float-right">2018-Present</span></h5>
+                      <div class="card-text mt-2">
+                        <a href="{% url 'courses:courseList' %}"><h4>List of Courses</h4></a>
+                      </div>
+                      
+                        
+                    
+                    </div>
+                </div>
+
+
+    </div> <!-- nav-profile end -->
+    
+    <div class="tab-pane fade" id="nav-itskills" role="tabpanel" aria-labelledby="nav-itskills-tab">
+      
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+
+        {% for skill in technical %}
+        {#  Single Card Template:#}
+        <div class="card" style="width: 34rem; margin: 4px">
+          <div class="row no-gutters">
+            <div class="col-md-2">
+              <img src="{{ skill.image.url }}" style="width:5rem; height:auto; border:1px solid black;" class="card-img-left" >
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title ml-2">{{ skill.name }}</h3>
+                <div class="progress">
+                  <div class="progress-bar bg-primary" role="progressbar" style="width: {{skill.value}}%" aria-valuenow="{{skill.value}}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div> <!-- nav-IT end -->
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+      <div class="card mt-4">
+        <h5 class="card-header">Contact Form (demo)</h5>
+        <div class="card-body">
+          
+          <form action="">
+            <div class="form-group row">
+                <label for="firstname" class="col-md-2 col-form-label">First Name</label>
+                <div class="col-md-10">
+                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="lastname" class="col-md-2 col-form-label">Last Name</label>
+                <div class="col-md-10">
+                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name">
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <label for="telnum" class="col-12 col-md-2 col-form-label">Contact Tel.</label>
+                <div class="col-5 col-md-3">
+                    <input type="tel" name="areacode" id="areacode" class="form-control" placeholder="Area Code">
+                </div>
+                <div class="col-7 col-md-7">
+                    <input type="tel" name="telnum" id="telnum" class="form-control" placeholder="Tel. Number">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="emailid" class="col-md-2 col-form-label">Last Name</label>
+                <div class="col-md-10">
+                    <input type="email" name="emailid" id="emailid" class="form-control" placeholder="Email ID">
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-6 offset-md-2">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="approve" id="approve" value="">
+                        <label class="form-check-label" for="approve"><strong>May we contact you?</strong></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-3 offset-md-2">
+                    <select class="form-control" name="" id="">
+                <option value="">Tel.</option>
+                <option value="">Email</option>
+            </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="feedback" class="col-md-2 col-form-label">Feedback</label>
+                <div class="col-md-10">
+                    <textarea name="feedback" id="feedback" class="form-control" placeholder="Feedback" rows="12"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="offset-md-2 col-md-10">
+                    <button type="submit" class="btn btn-primary">Send Feedback</button>
+                </div>
+            </div>
+
+    </form>
+    </div>
+    </div>
+  </div>
+    </div>
+    </div>
+  
+    
 {% endblock content %}
 

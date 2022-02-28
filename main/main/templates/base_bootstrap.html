@@ -23,7 +23,7 @@
 <body>
 
     {% block bs_sidenav %}
-    <nav class="navbar navbar-expand-md navbar-light text-black bg-gray mb-4 shadow p-3 mb-5">
+    <nav class="navbar navbar-expand-md navbar-light text-black bg-gray d-xxl-inline-flex shadow p-3">
         <a class="navbar-brand" href="{% url 'pages:home' %}"><img src="../media/covers/logo.svg" alt="logo" style="width:2rem"></a>
         <a class=" navbar-brand" href="{% url 'pages:home' %}">Home</a>
         <a class=" navbar-brand" href="{% url 'pages:about' %}">Profile</a>
@@ -31,9 +31,8 @@
         <div class="navbar-brand dropdown">
             <a class="text-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">Projects</a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class=" dropdown-item" href="{% url 'posts:home' %}">Posts</a>
-                <a class=" dropdown-item" href="{% url 'polls:home' %}">Polls</a>
                 <a class=" dropdown-item" href="{% url 'blogs:home' %}">Blogs</a>
+                <a class=" dropdown-item" href="{% url 'polls:home' %}">Polls</a>
                 <a class=" dropdown-item" href="{% url 'news:landing' %}">Newspaper</a>
                 <a class=" dropdown-item" href="{% url 'bookstore:home' %}">Bookstore</a>
                 <div class="dropdown-divider"></div>
@@ -89,13 +88,20 @@
     
     {% endblock breadcrubm %}
 
-    <div class="container">
+    <div class="container mt-4">
         {% block content %}
         <h1>Hello, World from Bootstrap 4.6</h1>
         {% endblock content %}
 
     </div>
 
+    <div class="navbar fixed-bottom text-white font-weight-bold bg-primary d-xxl-inline-flex shadow p-3 mt-10">
+
+        <div class="footer-copyright text-center">© 2022 Copyright
+        </div>
+
+
+    </div>
 
 </body>
 

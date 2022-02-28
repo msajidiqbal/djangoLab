@@ -1,0 +1,37 @@
+{% extends "base_bootstrap.html" %}
+
+{% block title %}
+Coursera Courses
+{% endblock title %}
+
+{% block content %}
+
+
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap">
+
+  {% for course in coursesList %}
+  {#  Single Card Template:#}
+  <div class="card" style="width: 18rem; margin: 10px">
+    <img src="{{ course.image.url }}" class="card-img-top" >
+    <div class="card-body">
+      <div style="display: flex; flex-direction: row">
+        <h3 class="card-title">{{ course.name }}</h3>
+        {#  Colored cirlce:#}
+        <div style="
+          background: {{ card.color }};
+          width: 20px;
+          height: 20px;
+          margin-left: 10px;
+          border-radius: 50%;
+        "></div>
+      </div>
+    </div>
+    <p>Type: {{course.category}}</p>
+    <p>Completion date: {{course.date}}</p>
+  </div>
+  {% endfor %}
+
+</div>
+
+{% endblock content %}
