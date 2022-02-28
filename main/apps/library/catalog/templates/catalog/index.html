@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block title %}
+        <title>Library Home Page</title>  
+        {% endblock title %}
+        
+    </head>
+    
+    <body>
+        {% block sidenave %}
+
+        {% endblock sidenave %}
+        {% block content %}
+                    <a href="{% url 'catalog:index' %}">Page1</a>
+    <!-- <a href="{% url 'catalog:home' %}">Page2</a> -->
+    <a href=" {% url 'catalog:books'%}">Book List</a>
+        <h1>Welcome to Local Library Home Page</h1>
+        <p>Library catalog</p>
+        
+        <ul>
+            <li><strong>Books: </strong> {{total_books}} </li>
+            <li> <strong>Copies: </strong> {{total_instances}}</li>
+            <li> <strong>Available Books: </strong> {{available_books}} </li>
+            <li> <strong>Authors: </strong> {{all_authors}} </li>
+        </ul>  
+        
+
+        <h1>list of books</h1>
+        {% if book_list %}
+        {% for book in book_list %}
+        <li> <a href="{% url 'catalog:book_detail' book.id %}">{{book.title}}</a> </li> 
+        
+        {% endfor %}
+        {% else %}
+        <p>There are no books available in Library</p>  
+        {% endif %}
+        
+
+        
+        <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+        {% endblock content %}  
+        #<!-- <li> <a href="{{book.get_absolute_url}}">{{book.title}}</a> </li> -->  
+    </body>
+    </html>
